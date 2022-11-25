@@ -1,10 +1,10 @@
 package com.envitech.ui.screens.dashboard.screen
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.envitech.ui.screens.dashboard.state.DashboardDataState
 import com.envitech.ui.screens.dashboard.viewmodel.DashboardViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
@@ -19,14 +19,9 @@ fun DashboardScreen(
 
     val uiState by viewModel.uiState.collectAsState()
 
-    when (uiState) {
+    when (val state = uiState) {
         is DashboardViewModel.UiState.Data -> {
-            try {
-                val dashboardMonitors = (uiState as DashboardViewModel.UiState.Data).dashboardMonitors
-                Log.d("defaultAppDebuger", "data: $dashboardMonitors")
-            } catch (e: Exception) {
-
-            }
+            DashboardDataState(state.dashboardMonitors)
         }
         is DashboardViewModel.UiState.Error -> {
 
