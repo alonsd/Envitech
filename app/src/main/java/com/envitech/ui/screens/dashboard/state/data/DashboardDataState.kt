@@ -1,7 +1,7 @@
-package com.envitech.ui.screens.dashboard.state
+package com.envitech.ui.screens.dashboard.state.data
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.BottomAppBar
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -9,11 +9,14 @@ import com.envitech.model.ui_models.DashboardMonitors
 
 @Composable
 fun DashboardDataState(dashboardMonitors: List<DashboardMonitors>) {
+    Scaffold(
+        bottomBar = { EnvitechBottomAppBar() },
+        content = { paddingValues ->
+            DashboardDataStateContent(modifier = Modifier.padding(paddingValues))
+        })
 
-    BottomAppBar(modifier = Modifier.fillMaxSize()) {
-
-    }
 }
+
 
 @Preview(showBackground = true)
 @Composable

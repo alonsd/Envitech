@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.envitech.ui.screens.dashboard.state.DashboardDataState
+import com.envitech.ui.screens.dashboard.state.data.DashboardDataState
 import com.envitech.ui.screens.dashboard.viewmodel.DashboardViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
