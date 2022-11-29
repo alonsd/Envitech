@@ -5,12 +5,12 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.envitech.model.ui_models.DashboardMonitors
+import com.envitech.model.ui_models.DashboardMonitor
 
 @Composable
-fun DashboardDataState(dashboardMonitors: List<DashboardMonitors>) {
+fun DashboardDataState(dashboardMonitors: List<DashboardMonitor>) {
     Scaffold(
-        bottomBar = { EnvitechBottomAppBar() },
+        bottomBar = { EnvitechBottomAppBar(dashboardMonitors) },
         content = { paddingValues ->
             DashboardDataStateContent(modifier = Modifier.padding(paddingValues))
         })

@@ -5,25 +5,24 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.BottomAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.envitech.core.ui.EnvitechButtonWithText
+import com.envitech.core.ui.DashboardBottomAppBarSpinner
+import com.envitech.model.ui_models.DashboardMonitor
 
 @Composable
-fun EnvitechBottomAppBar() {
+fun EnvitechBottomAppBar(dashboardMonitors: List<DashboardMonitor>) {
     BottomAppBar {
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            EnvitechButtonWithText(text = "alon1") {
+            dashboardMonitors.forEach { dashboardMonitor ->
+                DashboardBottomAppBarSpinner(model = dashboardMonitor) {
 
-            }
-            EnvitechButtonWithText(text = "alon2") {
-
-            }
-            EnvitechButtonWithText(text = "alon3") {
-
+                }
             }
         }
     }
@@ -33,5 +32,5 @@ fun EnvitechBottomAppBar() {
 @Preview(showBackground = true)
 @Composable
 fun EnvitechBottomAppBarPreview() {
-    EnvitechBottomAppBar()
+    EnvitechBottomAppBar(emptyList())
 }
